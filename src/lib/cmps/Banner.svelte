@@ -1,19 +1,22 @@
 <script lang="ts">
   import { page } from "$app/stores";
 
-  let bannerProducts = $page.data.config.LANDING_PAGE.bannerItems.map(
-    (p: any) => {
-      return $page.data.products.find((product) => product.id === p);
-    }
-  );
+  let bannerProducts = (
+    $page.data.config.LANDING_PAGE ?? { bannerItems: [] }
+  ).bannerItems?.map((p: any) => {
+    return $page.data.products.find((product) => product.id === p);
+  });
 </script>
 
-{#if bannerProducts.length}
+{#if bannerProducts?.length}
   <div class="container mx-auto py-9 md:py-12">
     <div class=" space-y-4 md:space-y-">
-      <a href="/banner_products" class=" justify-between bg-gray-50 dark:bg-gray-800 py-6md:py-12">
+      <a
+        href="/banner_products"
+        class=" justify-between bg-gray-50 dark:bg-gray-800 py-6md:py-12"
+      >
         <img
-          src={$page.data.config.LANDING_PAGE.bannerImage?.url}
+          src={($page.data.config.LANDING_PAGE ?? { url: "" }).bannerImage?.url}
           alt=""
           class="w-full"
         />
@@ -22,7 +25,7 @@
   </div>
 {/if}
 
-{#if !bannerProducts.length}
+{#if !bannerProducts?.length}
   <div class="container mx-auto py-9 md:py-12 px-4 md:px-6">
     <div
       class="flex items-strech justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8"

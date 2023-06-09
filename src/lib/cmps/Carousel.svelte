@@ -67,16 +67,16 @@
               />
               <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
                 <h2
-                  class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900"
+                  class="lg:text-xl dark:text-white leading-4 text-base lg:leading-5 text-white"
                 >
-                  Catalog 1
+                  {category.title}
                 </h2>
                 <div class="flex h-full items-end pb-6">
-                  <h3
+                  <!-- <h3
                     class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900"
                   >
-                    Minimal Interior
-                  </h3>
+                    {category.description}
+                  </h3> -->
                 </div>
               </div>
             </a>

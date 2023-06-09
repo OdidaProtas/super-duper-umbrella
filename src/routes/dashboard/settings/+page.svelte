@@ -50,8 +50,8 @@
   }
 
   const list = $page.data.categories
-    .filter((product) => !value.includes(product))
-    .map((product) => ({
+    ?.filter((product) => !value.includes(product))
+    ?.map((product) => ({
       ...product,
       value: product.id,
     }));
@@ -72,7 +72,7 @@
     let images = [];
     if (files.accepted.length) {
       images = await uploadCloudinary(
-        files.accepted.map((file, i) => ({ fileData: file, field: i }))
+        files.accepted?.map((file, i) => ({ fileData: file, field: i }))
       );
     }
     try {
@@ -93,7 +93,7 @@
       savingCarousels = false;
     }
   }
-  let bannerProducts = $page.data.config.LANDING_PAGE.bannerItems.map(
+  let bannerProducts = $page.data.config.LANDING_PAGE.bannerItems?.map(
     (p: any) => {
       return $page.data.products.find((product) => product.id === p);
     }
@@ -176,7 +176,7 @@
               </tr>
             </thead>
             <tbody>
-              {#each bannerProducts as product}
+              {#each bannerProducts ?? [] as product}
                 <tr
                   class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                 >

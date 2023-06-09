@@ -18,7 +18,7 @@
           {$page.data.category?.title}
         </p>
         <p class="text-base leading-4 text-gray-600 mt-2 dark:text-gray-400">
-          (09 products)
+          (0{$page.data.category.products.length} products)
         </p>
       </div>
     </div>
@@ -109,9 +109,9 @@
 <div class="mx-auto container px-6 xl:px-0 py-12">
   <div class="flex flex-col">
     <div class="flex flex-col justify-center">
-      <div class="relative">
+      <div class="relative ">
         <img
-          class="hidden sm:block w-full"
+          class="hidden h-64 rounded-xl sm:block w-full"
           src={$page.data.category?.media[0].url}
           alt="sofa"
         />

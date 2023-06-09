@@ -274,6 +274,6 @@
     </div>
   </div>
 </div>
-<div class="dark:bg-black min-h-screen">
+<div class="dark:bg-black dark:text-white min-h-screen">
   <slot />
 </div>

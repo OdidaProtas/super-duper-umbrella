@@ -20,13 +20,23 @@
     </h5>
   </a>
   <a
-  href="/dashboard/settings"
-  class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
->
-  <h5
-    class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+    href="/dashboard/settings"
+    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
   >
-    Settings
-  </h5>
-</a>
+    <h5
+      class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+    >
+      Orders
+    </h5>
+  </a>
+  <a
+    href="/dashboard/settings"
+    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+  >
+    <h5
+      class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+    >
+      Settings
+    </h5>
+  </a>
 </div>
