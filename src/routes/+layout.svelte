@@ -124,7 +124,7 @@
             class="md:w-2/12 justify-end flex items-center space-x-4 xl:space-x-8"
           >
             <div class="hidden lg:flex items-center space-x-4 xl:space-x-8">
-              <div class="absolute">
+              <div class="absolute dark:text-white">
                 <!-- <Cart /> -->
                 {Object.keys($basket).length}
               </div>
