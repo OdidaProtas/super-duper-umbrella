@@ -7,7 +7,7 @@
       return prev + curr.quantity * curr.price;
     }, 0);
   }
-  let payOpen = true;
+  let payOpen = false;
 
   let loading = false;
   let success = false;
