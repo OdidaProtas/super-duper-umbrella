@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model Media {
+  id         Int       @id @default(sequence())
+  url        String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  published  Boolean   @default(false)
+  Category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+  Product    Product?  @relation(fields: [productId], references: [id])
+  productId  Int?
+}
+
+model Category {
+  id          Int       @id @default(sequence())
+  title       String
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  published   Boolean   @default(false)
+  media       Media[]
+  products    Product[]
+}
+
+model Product {
+  id                 Int               @id @default(sequence())
+  title              String
+  description        String?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  published          Boolean           @default(false)
+  media              Media[]
+  category           Category          @relation(fields: [categoryId], references: [id])
+  categoryId         Int
+  price              Int               @default(0)
+  CarouselProducts   CarouselProducts? @relation(fields: [carouselProductsId], references: [id])
+  carouselProductsId Int?
+  banner             BannerCollection? @relation(fields: [bannerCollectionId], references: [id])
+  bannerCollectionId Int?
+}
+
+model CarouselProducts {
+  id       Int       @id @default(sequence())
+  products Product[]
+}
+
+model Config {
+  id   Int    @id @default(sequence())
+  data String @default("{LANDING_PAGE:{}}")
+}
+
+model Socials {
+  id       Int    @id @default(sequence())
+  imgUrl   String
+  postUrl  String
+  platform String @default("instagram")
+}
+
+model BannerCollection {
+  id       Int       @id @default(sequence())
+  imgUrl   String
+  products Product[]
+}
+
+model Order {
+  id          Int        @id @default(sequence())
+  status      String     @default("pending")
+  createdAt   DateTime   @default(now())
+  updateAt    DateTime   @updatedAt
+  data        String     @default("{basket:[], total:0}")
+  deviceId    String
+  addressList Address[]
+  payments    Payments[]
+}
+
+model Payments {
+  id        Int      @id @default(sequence())
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+  order     Order?   @relation(fields: [orderId], references: [id])
+  orderId   Int?
+  phone     String
+  amount    Int
+}
+
+model Address {
+  id      Int    @id @default(sequence())
+  phone   String
+  name    String
+  county  String
+  street  String
+  town    String
+  basket  Order  @relation(fields: [orderId], references: [id])
+  orderId Int
+}
