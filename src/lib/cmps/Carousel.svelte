@@ -53,7 +53,7 @@
       <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
         <div
           id="slider"
-          class="h-full md:grid grid-cols-4 lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
+          class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
         >
           {#each items as category}
             <a
@@ -110,8 +110,8 @@
   </div>
 {/if}
 {#if !items.length}
-  <div class="w-full bg-gray-200">
-    <div class="bg-gray-400 relative z-0">
+  <div class="w-full bg-gray-200 rounded-xl">
+    <div class="bg-gray-400 rounded-xl relative z-0">
       <div
         class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4"
       >
@@ -143,7 +143,7 @@
           >
             <div
               id="slider"
-              class="h-full grid grid-cols-4 lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
+              class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
             >
               {#each [1, 2, 3, 4] as category}
                 <div class="flex flex-shrink-0 relative w-full sm:w-auto">

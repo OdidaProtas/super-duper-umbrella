@@ -3,9 +3,45 @@
   import Carousel from "$lib/cmps/Carousel.svelte";
   import Featured from "$lib/cmps/Featured.svelte";
   import Products from "$lib/cmps/Products.svelte";
+  import CategoryList from "./CategoryList.svelte";
 </script>
 
-<Carousel />
+<div class="flex gap-1 pt-1">
+  <div class="w-56 px-2 hidden md:block">
+    <div class="container bg-white rounded-xl h-full">
+      <CategoryList />
+    </div>
+  </div>
+  <div class="flex-1 shadow-lg rounded-xl sm:px-2">
+    <Carousel />
+  </div>
+  <div class="w-56 hidden bg-white md:flex h-[100] rounded-xl">
+    <dv
+      class="bg-gray-100 mb-2 container h-full flex flex-col rounded-xl pt-9 text-center"
+    >
+      <div class="flex-1 space-y-8">
+        <div class="flex flex-col">
+          HELP CENTER
+          <small>Guide to Customer Care</small>
+        </div>
+        <div class="flex flex-col">
+          EASY RETURN
+          <small>Quick Refund</small>
+        </div>
+        <div class="flex flex-col">
+          SELL HERE
+          <small>Millions Of visitors</small>
+        </div>
+      </div>
+
+      <img
+        class="rounded-xl"
+        src="https://ke.jumia.is/cms/2023/JA23/Teasing/Countdown/3.gif"
+        alt=""
+      />
+    </dv>
+  </div>
+</div>
 
 <Featured />
 
